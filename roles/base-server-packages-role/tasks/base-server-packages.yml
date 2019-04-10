@@ -1,0 +1,28 @@
+---
+- name: Enable canonical debian packages in apt
+  apt_repository:
+    repo: "{{ repo }}"
+    state: present
+  loop:
+    - deb http://archive.ubuntu.com/ubuntu/ cosmic main
+    - deb http://archive.canonical.com/ubuntu cosmic partner
+  loop_control:
+    loop_var: repo
+
+- name: install expected packages with apt
+  apt:
+    name: pk
+  loop: "{{server_packages}}"
+  loop_control:
+    loop_var: pk
+  when: ansible_pkg_mgr == "apt"
+  become: true
+
+- name: install expected packages with yum
+  yum:
+    name: pk
+  loop: "{{ server_packages }}"
+  loop_control:
+    loop_var: pk
+  when: ansible_pkg_mgr == "yum"
+  become: true
