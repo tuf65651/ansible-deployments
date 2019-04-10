@@ -1,0 +1,6 @@
+---
+- name: Provision new web server
+  hosts: all
+  roles:
+    - base-server-packages-role
+  become: true
