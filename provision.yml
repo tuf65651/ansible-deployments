@@ -2,5 +2,6 @@
 - name: Provision new web server
   hosts: all
   roles:
-    - base-server-packages-role
+    # - base-server-packages-role
+    - deploy-web-app-role
   become: true

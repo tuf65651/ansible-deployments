@@ -3,4 +3,6 @@ server_packages:
   - base-config
   - ufw
   - python3
-  - pip
+  - python-pip
+  - python-dev
+  - build-essential

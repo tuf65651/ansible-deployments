@@ -4,3 +4,4 @@
     - name: Connect and display hostfacts
       debug:
         msg: "{{ ansible_hostname }}"
+  become: true
