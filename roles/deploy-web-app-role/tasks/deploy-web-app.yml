@@ -1,0 +1,29 @@
+---
+
+- name: clone project repo from git
+  git:
+    dest: "{{ local_webapp_dir }}"
+    repo: "{{ webapp_git_repo_url }}"
+    force: yes
+    accept_hostkey: yes
+
+# TODO: Find out when to do this, and do it only then
+- name: get path to pip
+  command: which pip
+  register: pip_location
+  failed_when: "{{ not pip_location }}"
+
+- name: debug path to pip
+  debug:
+    msg: "{{ pip_location }}"
+
+- name: pip install listed requirements
+
+  vars:
+  pip:
+    requirements: "{{ local_webapp_dir }}requirements.txt"
+    executable: "{{ pip_location.stdout_lines | first }}"
+
+- name: start application
+  command: "python {{ local_webapp_dir }}manage.py gunicorn -p 80"
+  become: yes

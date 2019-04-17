@@ -1,0 +1,6 @@
+[py3-hosts]
+# pilot-web-server
+pilot-aws-web-server
+
+[py3-hosts:vars]
+ansible_python_interpreter=/usr/bin/python3

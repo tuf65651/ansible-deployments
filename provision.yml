@@ -5,3 +5,8 @@
     # - base-server-packages-role
     - deploy-web-app-role
   become: true
+  environment:
+    DB_USER: vault_DB_user
+    DB_PASS: vault_DB_pass
+    AWS_ID: vault_AWS_ID
+    AWS_SECRET_ID: vault_secret_ID
