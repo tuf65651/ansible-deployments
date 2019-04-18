@@ -1,0 +1,27 @@
+---
+- name: disable ufw while configuring
+  systemd:
+    name: ufw
+    state: stopped
+
+- name: close all ports to incoming by default
+  ufw:
+    policy: reject
+    direction: incoming
+
+- name: open ssh port
+  ufw:
+    rule: allow
+    port: ssh
+
+- name: Allow all access to tcp port 80
+  ufw:
+    rule: allow
+    port: 80
+    proto: tcp
+
+- name: Restart UFW with new rules
+  systemd:
+    name: ufw
+    state: restarted
+    daemon_reload: yes

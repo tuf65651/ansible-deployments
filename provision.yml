@@ -3,7 +3,8 @@
   hosts: all
   roles:
     # - base-server-packages-role
-    - deploy-web-app-role
+    # - deploy-web-app-role
+    - firewall-rules-role
   become: true
   environment:
     DB_USER: vault_DB_user
