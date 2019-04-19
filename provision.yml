@@ -2,8 +2,8 @@
 - name: Provision new web server
   hosts: all
   roles:
-    # - base-server-packages-role
-    # - deploy-web-app-role
+    - base-server-packages-role
+    - deploy-web-app-role
     - firewall-rules-role
   become: true
   environment:
