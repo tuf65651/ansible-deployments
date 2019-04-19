@@ -15,7 +15,7 @@
 
 - name: debug path to pip
   debug:
-    msg: "{{ pip_location }}"
+    msg: "Trying pip executable at {{ pip_location }}"
 
 - name: pip install listed requirements
 
