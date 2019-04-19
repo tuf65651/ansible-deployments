@@ -14,4 +14,4 @@ It just connects, discovers host facts, and prints out hostname.
 
 **Requirements**
 `provision.yml` sets environment using vaulted secrets. Deployments in this project rely on environment variables.
-These variables must be set, either in the host system, or using ansible's `environment` keyword.
+These variables must be set, either in the host system, or using ansible's `environment` keyword. If you are confident in the security of your connection, and in the security of the system running engine, you can set these variables in plain text, using the `environment` keyword.
