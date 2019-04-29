@@ -22,6 +22,7 @@
 - name: install expected packages with yum
   yum:
     name: pk
+  update_cache: yes
   loop: "{{ server_packages }}"
   loop_control:
     loop_var: pk
