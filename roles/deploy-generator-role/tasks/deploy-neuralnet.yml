@@ -26,5 +26,6 @@
     extra_args: "--no-cache-dir" # allow large packages to install on small disks
 
 - name: start application
-  command: "python {{ local_neuralnet_dir }}manage.py gunicorn -p 80"
-  become: yes
+  command: "python {{ local_neuralnet_dir }}sample.py"
+  # command: "python {{ local_neuralnet_dir }}sample.py --data_dir {{local_neuralnet_dir}}data/rock \
+  # --experiment_dir {{local_neuralnet_dir}}folk --save_dir {{local_neuralnet_dir}}verify"
