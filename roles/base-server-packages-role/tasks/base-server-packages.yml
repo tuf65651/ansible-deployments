@@ -15,6 +15,7 @@
   loop: "{{server_packages}}"
   loop_control:
     loop_var: pk
+  update_cache: yes
   when: ansible_pkg_mgr == "apt"
   become: true
   ignore_errors: yes
